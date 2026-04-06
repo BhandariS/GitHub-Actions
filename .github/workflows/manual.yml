@@ -1,0 +1,20 @@
+name: manual trigger
+
+on:
+  workflow_dispatch:
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v4
+
+      - name: print name
+        run: echo "My name is Shubham"
+
+      - name: print role
+        run: echo "I am Devops Engineer"
+
+      - name: print date
+        run: echo "$date"
