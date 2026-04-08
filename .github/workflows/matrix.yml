@@ -11,7 +11,7 @@ jobs:
         env: [dev, sit, uat]
     runs-on: ubuntu-latest
     steps:
-      - name: deploy to $ {{ matrix.env }} Environment
+      - name: deploy to ${{ matrix.env }} Environment
         run: |
           echo: "Starting Deployment..."
           echo "Deploying to ${{ matrix.env }}"
