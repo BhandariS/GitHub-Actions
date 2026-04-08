@@ -7,13 +7,16 @@ on:
       - feature/*
 
 jobs:
-  conditions-check:
+  conditions-check-on-main:
+    if: github.ref == 'ref/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: condition on main
-        if: github.ref == 'ref/heads/main'
-        run: echo "Deploying the changes to main"
+        run: echo "Deploying the changes to Procuction"
 
+  condition-check-on-feature:
+    if: startswith(github.ref, 'refs/heads/feature/')
+    runs-on: ubuntu-latest
+    steps:
       - name: condition check on feature
-        if: startswith(github.ref, 'refs/heads/feature/')
         run: echo "Running feature validation"
