@@ -1,0 +1,19 @@
+name: Conditions_check
+
+on:
+  push:
+    branches:
+      - main
+      - feature/*
+
+jobs:
+  conditions-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: condition on main
+        if: github.ref == 'ref/heads/main'
+        run: echo "Deploying the changes to main"
+
+      - name: condition check on feature
+        if: startswith(github.ref, 'refs/heads/feature/')
+        run: echo "Running feature validation"
