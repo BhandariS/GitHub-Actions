@@ -14,4 +14,4 @@ jobs:
       - name: deploy to ${{ matrix.env }} Environment
         run: |
           echo: "Starting Deployment..."
-          echo "Deploying to ${{ matrix.env }}"
+          echo: "Deploying to ${{ matrix.env }}"
