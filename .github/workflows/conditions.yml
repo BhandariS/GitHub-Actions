@@ -7,15 +7,15 @@ on:
       - feature/*
 
 jobs:
-  conditions-check-on-main:
+  deploy-main:
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     steps:
       - name: condition on main
-        run: echo "Deploying the changes to Procuction"
+        run: echo "Deploying the changes to Production"
 
-  condition-check-on-feature:
-    if: startswith(github.ref, 'refs/heads/feature/')
+  validate-feature:
+    if: ${{ startsWith(github.ref, 'refs/heads/feature/') }}
     runs-on: ubuntu-latest
     steps:
       - name: condition check on feature
