@@ -6,9 +6,12 @@ on:
 jobs:
   multi-env-deploy:
     strategy:
+      fail-fast: false
       matrix:
         env: [dev, sit, uat]
     runs-on: ubuntu-latest
     steps:
-      - name: deploy to all env
-        run: echo "Deploying to ${{ matrix.env }}"
+      - name: deploy to $ {{ matrix.env }} Environment
+        run: |
+          echo: "Starting Deployment..."
+          echo "Deploying to ${{ matrix.env }}"
