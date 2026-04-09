@@ -2,7 +2,12 @@ name: Salesforce PR Validation
 
 on:
   pull_request:
+    types:
+      - "opened"
+      - "synchronize"
+      - "reopened"
     branches: [main]
+
 jobs:
   validate-deployment:
     if: ${{ startsWith(github.head_ref, 'feature/' )}}
