@@ -1,7 +1,7 @@
 name: Conditions_check
 
 on:
-  push:
+  workflow_dispatch:
     branches:
       - main
       - feature/*
