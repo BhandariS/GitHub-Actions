@@ -5,7 +5,7 @@ on:
     branches: [main]
 jobs:
   validate-deployment:
-    if: ${{ startsWith(github.head_ref, 'feature/*' )}}
+    if: ${{ startsWith(github.head_ref, 'feature/' )}}
     runs-on: ubuntu-latest
 
     env:
