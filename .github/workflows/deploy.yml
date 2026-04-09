@@ -6,9 +6,12 @@ on:
       env:
         required: true
         type: string
+        default: dev
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy step
-        run: echo "Deploying to ${{ inputs.env }}"
+        run: |
+          echo "Starting Deployment..."
+          echo "Deploying to ${{ inputs.env }}"
