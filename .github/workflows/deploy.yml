@@ -13,5 +13,9 @@ jobs:
     steps:
       - name: Deploy step
         run: |
+          if [[ "${{ inputs.env }}" != "dev" && "${{ inputs.env }}" != "sit" && "${{ inputs.env }}" != "uat" ]]; then
+          echo "Invalid Environment"
+          exit 1
+          fi
           echo "Starting Deployment..."
           echo "Deploying to ${{ inputs.env }}"
