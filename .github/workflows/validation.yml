@@ -1,7 +1,7 @@
 name: salesforce validation
 
 on:
-  pull_request:
+  push:
     branches: [main]
 
 jobs:
