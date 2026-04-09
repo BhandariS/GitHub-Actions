@@ -4,3 +4,5 @@ on:
 jobs:
   deploy-to-env:
     uses: ./.github/workflows/deploy.yml
+    with:
+      env: default
