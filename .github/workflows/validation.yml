@@ -6,6 +6,8 @@ on:
 jobs:
   validate-deployment:
     runs-on: ubuntu-latest
+    env:
+      ORG: SIT
     steps:
       #1. Checkout code
       - name: Code Checkout
@@ -26,6 +28,6 @@ jobs:
       # 5. Validate Deployment (Check-Only)
       - name: Validate Deployment
         run: |
-          echo "Triggered from branch: ${{ github.head_ref }}"
+          echo "Triggered from branch: ${{ github.head_ref }} in $(ORG)"
           echo "Running check-only deployment..."
           echo "Validating metadata in force-app..."
