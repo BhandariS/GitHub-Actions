@@ -33,7 +33,6 @@ jobs:
       - name: Authenticate to Salesforce
         run: |
           sf org login jwt \
-           --github-actor $ {{ github.actor}} \
            --client-id ${{ secrets.SF_CLIENT_ID }} \
            --jwt-key-file server.key \
            --username ${{ secrets.SF_USERNAME }} \
