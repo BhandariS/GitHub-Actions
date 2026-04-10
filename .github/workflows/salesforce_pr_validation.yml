@@ -42,13 +42,12 @@ jobs:
            --username ${{ secrets.SF_USERNAME }} \
            --instance-url ${{ secrets.SF_INSTANCE_URL }} \
            --alias Zensar
-           --set-default
 
       #5. Verify Org Connection
       - name: Verify Org
         run: |
           sf org display
-          sf config set target-org Zensar
+          sf config set --target-org Zensar
 
       #6. Validate Deployment
       - name: Validate deployment
