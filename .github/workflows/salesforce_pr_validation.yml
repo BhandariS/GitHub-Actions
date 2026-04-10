@@ -27,7 +27,7 @@ jobs:
 
       #3. Create JWT Key File
       - name: Create JWT Key File
-        run: echo "${{ secrets.SF_JWT_KEY }}" > server.key
+        run: echo "${{ secrets.SF_JWT_KEY }}" | base64 -d > server.key
 
       #4. Authenticate Credentials using JWT
       - name: Authenticate to Salesforce
