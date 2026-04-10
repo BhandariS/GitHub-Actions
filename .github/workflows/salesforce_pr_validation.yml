@@ -36,7 +36,7 @@ jobs:
            --client-id ${{ secrets.SF_CLIENT_ID }} \
            --jwt-key-file server.key \
            --username ${{ secrets.SF_USERNAME }} \
-           --instance-url https://zensar-f7-dev-ed.my.salesforce.com
+           --instance-url https://test.salesforce.com
 
       #5. Verify Org Connection
       - name: Verify Org
