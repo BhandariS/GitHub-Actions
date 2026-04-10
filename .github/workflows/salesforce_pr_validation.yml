@@ -54,7 +54,6 @@ jobs:
           echo "Triggered from Branch: ${{ github.head_ref }}"
           echo "Target Org: $ORG"
           sf project deploy validate \
-            --source-dir force-app \
+            --source-dir force-app/manifest/package.xml \
             --target-org Zensar \
-            --check-only \
             --test-level RunLocalTests
