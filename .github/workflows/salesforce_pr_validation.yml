@@ -19,7 +19,7 @@ jobs:
     steps:
       #1. Code Checkout
       - name: Code Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       #2. Install CLI
       - name: Install Salesforce CLI
@@ -36,7 +36,7 @@ jobs:
            --client-id ${{ secrets.SF_CLIENT_ID }} \
            --jwt-key-file server.key \
            --username ${{ secrets.SF_USERNAME }} \
-           --instance-url https://test.salesforce.com
+           --instance-url https://test.salesforce.com \
            --alias Zensar
 
       #5. Verify Org Connection
@@ -49,7 +49,7 @@ jobs:
       - name: Validate deployment
         run: |
           echo "Triggered from Branch: ${{ github.head_ref }}"
-          echo "Target Org: $(ORG)"
+          echo "Target Org: $ORG"
           sf project deploy validate \
             --source-dir force-app \
             --target-org Zensar \
