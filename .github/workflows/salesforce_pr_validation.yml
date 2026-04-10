@@ -46,8 +46,7 @@ jobs:
       #5. Verify Org Connection
       - name: Verify Org
         run: |
-          sf org display
-          sf config set --target-org Zensar
+          sf org display --taget-org Zensar
 
       #6. Validate Deployment
       - name: Validate deployment
