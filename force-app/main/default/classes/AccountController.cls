@@ -9,7 +9,7 @@ public class AccountController {
                          FROM Case
                          WHERE IsClosed=true
                           AND AccountId IN :accountIds]){
-            #to check changes                
+            <!-- to check changes   -->             
 
         // if map does not have current account, then add it
         if(! accountTotalCaseMap.containsKey(caseObj.AccountId)){
