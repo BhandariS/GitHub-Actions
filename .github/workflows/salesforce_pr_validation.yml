@@ -53,6 +53,6 @@ jobs:
         run: |
           echo "Triggered from Branch: ${{ github.head_ref }}"
           echo "Target Org: $ORG"
-          sf project deploy validate \
+          sf project deploy start \
             --manifest force-app/manifest/minipackage.xml \
             --target-org Zensar \
