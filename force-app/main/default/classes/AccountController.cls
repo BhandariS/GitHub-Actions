@@ -12,6 +12,7 @@ public class AccountController {
                             
 
         // if map does not have current account, then add it
+        //update new changes for validation
         if(! accountTotalCaseMap.containsKey(caseObj.AccountId)){
             accountTotalCaseMap.put(caseObj.AccountId, 0);
             accountTotalCaseDaysMap.put(caseObj.AccountId, 0);
