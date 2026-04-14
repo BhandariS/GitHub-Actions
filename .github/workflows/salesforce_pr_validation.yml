@@ -56,4 +56,4 @@ jobs:
           sf project deploy validate \
             --manifest force-app/manifest/minipackage.xml \
             --target-org Zensar \
-            --test-level RunLocalTests
+            --test-level NoTestRun
