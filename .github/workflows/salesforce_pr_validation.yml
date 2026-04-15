@@ -67,5 +67,5 @@ jobs:
       - name: Clean Up the Job
         if: always()
         run: |
-          rm -rf ~/.sf
-          rm -rf ~/.npm
+          echo $GITHUB_WORKSPACE
+          rm -rf $GITHUB_WORKSPACE/*
