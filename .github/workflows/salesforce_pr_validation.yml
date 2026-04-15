@@ -21,19 +21,25 @@ jobs:
       - name: Code Checkout
         uses: actions/checkout@v6
 
-      #2. Install CLI
+      #2. Setup Node
+      - name: Setup Node js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      #3. Install CLI
       - name: Install Salesforce CLI
         run: |
           npm install -g @salesforce/cli
           sf --version
 
-      #3. Create JWT Key File
+      #4. Create JWT Key File
       - name: Create JWT Key File
         run: |
           echo "${{ secrets.SF_JWT_KEY }}" > jwt-key.txt
           chmod 600 jwt-key.txt
 
-      #4. Authenticate Credentials using JWT
+      #5. Authenticate Credentials using JWT
       - name: Authenticate to Salesforce
         run: |
           sf org login jwt \
@@ -43,12 +49,12 @@ jobs:
            --instance-url ${{ secrets.SF_INSTANCE_URL }} \
            --alias Zensar
 
-      #5. Verify Org Connection
+      #6. Verify Org Connection
       - name: Verify Org
         run: |
           sf org display --target-org Zensar
 
-      #6. Validate Deployment
+      #7. Validate Deployment
       - name: Validate deployment
         run: |
           echo "Triggered from Branch: ${{ github.head_ref }}"
@@ -56,3 +62,10 @@ jobs:
           sf project deploy start \
             --manifest force-app/manifest/minipackage.xml \
             --target-org Zensar \
+
+      #8. Clean up Job
+      - name: Clean Up the Job
+        if: always()
+        run: |
+          rm -rf ~/.sf
+          rm -rf ~/.npm
